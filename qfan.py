@@ -17,7 +17,7 @@ def print_welcome_message():
 
 init(autoreset=True)
 
-def collect_and_claim(user_data, index):
+def claim(user_data, index):
     headers = {
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9',
@@ -49,7 +49,7 @@ def collect_and_claim(user_data, index):
                 print(Fore.GREEN + Style.BRIGHT + f"\r[ Claim ] : Successfully claimed {claim_data['claim_amount']} ", flush=True)
             elif claim_response.status_code == 404:
                 print(Fore.RED + Style.BRIGHT + f"\r[ Claim ] : Failed to claim. {claim_response.json()['message']}", flush=True)
-        elif collect_response.status_code == 404:
+        elif claim_response.status_code == 404:
             print(Fore.RED + Style.BRIGHT + f"\r[ Collect ] : Failed to collect. {collect_response.json()['message']}", flush=True)
     except Exception as e:
         print(Fore.RED + Style.BRIGHT + f"\r[ Collect ] : Failed to collect. {e}", flush=True)
