@@ -34,16 +34,9 @@ def claim(user_data, index):
     headers['--webapp-init'] = user_data
 
     try:
-        print(f"{Fore.CYAN+Style.BRIGHT}\n=== [ Akun {index} ] ===")
-        # Collect
-        print(Fore.YELLOW + Style.BRIGHT + "[ Collect ] : Trying to claim.''  ", end="", flush=True)
-        collect_response = requests.post('https://qfan-api.qcloud.asia/api/qpoint-transaction/claimMissionReward', headers=headers, json={"collect_onchain": False})
-        if collect_response.status_code == 200:
-            collect_data = collect_response.json()
-            print(Fore.GREEN + Style.BRIGHT + f"\r[ Collect ] : Successfully collected {collect_data['farm_balance']} ", flush=True)
-            # Claim
-            print(Fore.YELLOW + Style.BRIGHT + "[ Claim ] : Trying to claim. ", end="", flush=True)
-            claim_response = requests.post('https://rest.lottefi.app/api/farm/claim', headers=headers)
+     # Claim
+        print(Fore.YELLOW + Style.BRIGHT + "[ Claim ] : Trying to claim. ", end="", flush=True)
+            claim_response = requests.post('https://qfan-api.qcloud.asia/api/qpoint-transaction/claimMissionReward', headers=headers)
             if claim_response.status_code == 200:
                 claim_data = claim_response.json()
                 print(Fore.GREEN + Style.BRIGHT + f"\r[ Claim ] : Successfully claimed {claim_data['claim_amount']} ", flush=True)
