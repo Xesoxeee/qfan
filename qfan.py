@@ -5,9 +5,7 @@ from colorama import Fore, Style, init
 
 def print_welcome_message():
     print(r"""
-          
-█▀▀ █░█ ▄▀█ █░░ █ █▄▄ █ █▀▀
-█▄█ █▀█ █▀█ █▄▄ █ █▄█ █ ██▄
+          SPHINX
           """)
     print(Fore.GREEN + Style.BRIGHT + "LotteFi BOT")
     print(Fore.CYAN + Style.BRIGHT + "Update Link: https://github.com/adearman/lottefi")
